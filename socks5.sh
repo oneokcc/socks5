@@ -1,9 +1,6 @@
 #!/bin/bash
 #获取本机非127.0.0的ip个数
 
-
-
-
 v=`ip addr|grep -o -e 'inet [0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}'|grep -v "127.0.0"|awk '{print $2}'| wc -l`
 num=`cat /proc/sys/net/ipv6/conf/all/disable_ipv6`
 
@@ -15,15 +12,7 @@ net.ipv6.conf.default.disable_ipv6=1
 net.ipv6.conf.lo.disable_ipv6=1
 END
 fi
-#if [ "$v" -gt "300" ];then  
-    #echo -e "\033[41m"该服务器IP已经超过300个，你要继续吗！！！按任意键继续...或按 Ctrl+c 取消"  \033[0m"&&read -s -n1
-#fi
-#echo -e "\033[33m是否安装过bbr,第一次建议选择 1 否则选择0，默认也不执行(BBR安装时间较久) \033[0m"&&read value
-#if [ $value -eq 1 ]; then
-   # yum update
-    #bash <(curl -s -L http://oneok.cc/zyysk5/bbr.sh)
 
-#fi
 
 
 echo 正在处理，请耐心等待
@@ -36,10 +25,7 @@ fi
 
 
 echo "runing pelase waiting"
-#echo -e "\033[33m 请输入我们的暗号~ \033[0m"&&read id
-#if [ "$id" = "89481141" ];then
    echo 正在处理，请耐心等待
-   #echo -e "\033[33m-------若为多IP服务器请确认是否已配置好IP地址...按任意键继续 或按 Ctrl+c 取消-------\033[0m"&&read -s -n1
    echo;rm -fr /tmp/cut&&touch /tmp/cut
    read -p "请在30秒内输入端口否则使用随机端口："  -t 30  port
    if [ $port -gt 1999 -a $port -lt 60000 ] 2>/dev/null ;then
@@ -79,7 +65,7 @@ echo "runing pelase waiting"
    fi
 else 
    echo 
-   echo -e "\033[41m" 模式错误。该工具仅限内部使用 "\033[0m"
+   echo -e "\033[41m" 模式错误。该工具仅限学习使用不得用在其他用途 "\033[0m"
    echo 
 
 #fi
