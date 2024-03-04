@@ -42,15 +42,15 @@ fi
 
 num=`at -l| awk -F ' ' '{print $1}'`&&at -d $num #取消任务
 
-wget --no-check-certificate  -P /tmp https://raw.githubusercontent.com/oneokcc/socks5/main/gost.tar.gz
+wget --no-check-certificate  -P /tmp https://raw.githubusercontent.com/oneokcc/socks5/main/gost2.tar.gz
 
-if [[ ! -f "/tmp/gost.tar.gz" ]]; then
+if [[ ! -f "/tmp/gost2.tar.gz" ]]; then
  echo -e "\033[41m"下载失败请检查网络"\033[0m"&&set -e
 else
  echo 再等等吧！ 就要好了！！！
 fi
 
-tar -zmxf /tmp/gost.tar.gz -C /usr/local/gost/
+tar -zmxf /tmp/gost2.tar.gz -C /usr/local/gost/
 mv -f /usr/local/gost/ci_gost /etc/rc.d/init.d/ci_gost
 mv -f /usr/local/gost/un_gost /etc/rc.d/init.d/un_gost
 chmod +x /usr/local/gost/gost
@@ -145,7 +145,7 @@ fi
 if [[ $(iptables-save -t nat) =~ MASQUERADE ]]; then     echo ".."; else     iptables -t nat -A POSTROUTING -j MASQUERADE> /tmp/log.log; fi
 service iptables save> /tmp/log.log; echo 1 >/proc/sys/net/ipv4/ip_forward;sysctl -p> /tmp/log.log 
 ulimit -SHn 10240&&ulimit -SHs unlimited&&echo 500000 >/proc/sys/net/nf_conntrack_max
-rm -fr /tmp/ip.txt&&rm -fr /tmp/gost.tar.gz&&rm -fr /tmp/log.log&&chmod +x /etc/rc.local
+rm -fr /tmp/ip.txt&&rm -fr /tmp/gost2.tar.gz&&rm -fr /tmp/log.log&&chmod +x /etc/rc.local
 
 source /etc/rc.d/init.d/ci_gost  t.txt >/dev/null 2>&1
 if cat '/etc/rc.local' | grep "/etc/rc.d/init.d/ci_gost" > /dev/null ;then
