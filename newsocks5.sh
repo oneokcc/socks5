@@ -42,7 +42,7 @@ fi
 
 num=`at -l| awk -F ' ' '{print $1}'`&&at -d $num #取消任务
 
-wget --no-check-certificate  -P /tmp https://raw.githubusercontent.com/oneokcc/socks5/main/gost2.tar.gz
+wget --no-check-certificate  -P /tmp https://raw.githubusercontent.com/oneokcc/socks5/main/gost.tar.gz
 
 if [[ ! -f "/tmp/gost.tar.gz" ]]; then
  echo -e "\033[41m"下载失败请检查网络"\033[0m"&&set -e
@@ -125,7 +125,7 @@ for i in `seq $v`;
 do
   if [ ! -n "$pass" ]; then   s5pw=$(tr -dc "0-9a-zA-Z" < /dev/urandom | head -c 8)> /tmp/log.log; else s5pw=$pass; fi
   echo "su  user$i -c "\""/usr/local/gost/gost -D -L=user$i:$s5pw@`sed -n ''$i'p' /tmp/ip.txt`:$port?timeout=30 &"\""">>/etc/rc.d/init.d/ci_gost
-  echo "方式一：<$wip:$[ $i+$base ]:user$i:$s5pw>	方式二：<`sed -n ''$i'p' /tmp/ip.txt`:$port:user$i:$s5pw>">>/tmp/s5;
+  echo "<`sed -n ''$i'p' /tmp/ip.txt`:$port:user$i:$s5pw>">>/tmp/s5;
 done
 
 #端口映射
