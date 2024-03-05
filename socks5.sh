@@ -46,7 +46,8 @@ echo "runing pelase waiting"
    PIDS=`ps -ef|grep gost|grep -v grep`
    if [ "$PIDS" != "" ]; then
       s=`ps -ef|grep gost|grep -v grep|awk '{print $2}'| wc -l`
-      echo -e "\033[35m一共生成$s条，格式 IP--端口--用户名--密码\033[0m"
+       echo -e "\033[35m检测到本机共有$v个IP地址,并成功搭建$s条.\033[0m"
+    
       cat /tmp/s5
       
      # echo -e "\033[33m 是否需要导出所有的配置数据到电脑上？需要请输入 1 ,文件名是 s5 t.txt \033[0m"&&read value
