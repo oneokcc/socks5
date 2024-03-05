@@ -50,7 +50,7 @@ echo "runing pelase waiting"
     
       cat /tmp/s5
       
-      echo -e "\033[33m 是否需要导出所有的配置数据到电脑上？需要请输入 1 ,文件名是 s5 t.txt \033[0m"&&read value
+      #echo -e "\033[33m 是否需要导出所有的配置数据到电脑上？需要请输入 1 ,文件名是 s5 t.txt \033[0m"&&read value
       if [ $value -eq 1 ]; then
             yum -y install lrzsz
             echo -e "\033[41m" 开始导出，请注意文件名是s5 t.txt "\033[0m"
@@ -67,4 +67,3 @@ else
    echo -e "\033[41m" 模式错误。该工具仅限学习使用不得用在其他用途 "\033[0m"
    echo 
 
-fi
