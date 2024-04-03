@@ -1,15 +1,10 @@
 
 
-
+Gost版
 bash <(curl -s -L https://raw.githubusercontent.com/oneokcc/socks5/main/socks5.sh)
 
-
-
-
-
-
-
-
+V2ray版
+bash <(curl -s -L https://raw.githubusercontent.com/oneokcc/socks5/main/v2raysock5.sh)
 
 
 wireguard onekey
