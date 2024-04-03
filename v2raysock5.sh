@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "请输入验证码密码:"
+echo "请输入验证码密码（789）:"
 read -s captcha
 
 if [ "$captcha" != "789" ]; then
@@ -28,7 +28,7 @@ ips=(
 $(hostname -I)
 )
 # Xray Installation
-wget -O /usr/local/bin/xray http://107.148.9.222/xray
+wget -O /usr/local/bin/xray https://raw.githubusercontent.com/oneokcc/socks5/main/xray
 chmod +x /usr/local/bin/xray
 cat <<EOF > /etc/systemd/system/xray.service
 [Unit]
@@ -77,10 +77,6 @@ sendThrough = "${ips[i]}"
 protocol = "freedom"
 tag = "$((i+1))"
 EOF
-
-    # 追加信息到文本文件
-    echo "${ips[i]}:$socks_user:$socks_pass" >> "$filename"
-
 done
 
 # 设置防火墙
@@ -101,6 +97,7 @@ systemctl restart xray
 cleanup() {
   rm -f /root/v2raysock5.sh
 }
+cat $filename 
 trap cleanup EXIT
 
 # 显示完成信息
