@@ -87,7 +87,6 @@ systemctl start xray
 
 # 显示本机所有IP地址
 filename=$(hostname -I | awk '{print $1}').txt
-echo "$(date '+%Y-%m-%d')" > $filename
 hostname -I | tr ' ' '\n' >> $filename 
 
 # 重启xray
