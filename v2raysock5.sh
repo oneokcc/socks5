@@ -97,14 +97,13 @@ systemctl restart xray
 cleanup() {
   rm -f /root/v2raysock5.sh
 }
-cat $filename 
 trap cleanup EXIT
 
 # 显示完成信息
 echo "====================================="
 echo "  "
 echo "==>已安装完毕，赶紧去测试一下!  "
-echo "  "
-echo "==>生成ip文件在root目录下!  "
+echo $socks_user:$socks_pass:$socks_port
+cat $filename 
 echo "  "
 echo "====================================="
