@@ -103,7 +103,7 @@ trap cleanup EXIT
 echo "====================================="
 echo "  "
 echo "==>已安装完毕，赶紧去测试一下丫!  "
-echo "用户名：$socks_user --密码：$socks_pass：端口：$socks_port"
+echo "用户名：$socks_user --密码：$socks_pass --端口：$socks_port"
 cat $filename 
 echo "  "
 echo "====================================="
